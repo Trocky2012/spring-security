@@ -5,12 +5,14 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.config.server.EnableConfigServer;
+import org.springframework.context.annotation.PropertySource;
 
 @EnableConfigServer
 @SpringBootApplication
+@PropertySource(value = {"classpath:application.properties"})
 public class HrConfigServerApplication implements CommandLineRunner {
 
-	@Value("${spring.cloud.config.server.git.username}")
+	@Value("${spring.cloud.config.server.git.username:default}")
 	private String username;
 	
 	public static void main(String[] args) {

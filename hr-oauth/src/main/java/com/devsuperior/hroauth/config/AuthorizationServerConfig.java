@@ -3,6 +3,7 @@ package com.devsuperior.hroauth.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
@@ -17,10 +18,10 @@ import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 @EnableAuthorizationServer
 public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
 	
-	@Value("${oauth.client.name}")
+	@Value("${oauth.client.name:myappname123}")
 	private String clientName;
 	
-	@Value("${oauth.client.secret}")
+	@Value("${oauth.client.secret:myappname123}")
 	private String clientSecret;
 	
 	@Autowired
